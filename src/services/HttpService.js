@@ -65,7 +65,7 @@ const put = (path, data, cb, errorCb) => {
     store.state.inputLoading = true
     store.state.errors = []
     data['_method'] = 'PUT'
-    Vue.axios.post(path, data)
+    Vue.axios.put(path, data)
         .then((response) => {
             postCompleted++
             PostLoading()

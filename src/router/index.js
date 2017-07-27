@@ -17,9 +17,14 @@ export default new Router({
         redirect: '404'
     },
     {
-      path: '/',
-      name: 'Index',
-      component: require('@/pages/common/index')
+        path: '/',
+        name: 'Index',
+        component: require('@/pages/common/index')
+    },
+    {
+        path: '/hue',
+        name: 'Hue',
+        component: require('@/pages/common/hue')
     }
   ]
 })
