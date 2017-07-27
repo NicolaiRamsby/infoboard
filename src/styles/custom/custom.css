@@ -1,0 +1,273 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #fff;
+}
+
+.content{
+    width: 834px;
+    height: 1112px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin: 50px auto 50px auto;
+    background: linear-gradient(to bottom right, #0D0D0D, #000000);
+}
+
+.element-box.weather, .element-box.climate{
+    margin-bottom: 20px;
+}
+
+.headline{
+    height: 30px;
+    background: #fff;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    font-weight: 100;
+}
+
+.element-content{
+    margin-top: 1px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 10px;
+    font-weight: 100;
+    display: grid;
+}
+
+.weather-hour{
+    text-align: center;
+}
+
+.wh-date-wrapper span{
+    font-weight: 400;
+}
+
+.wh-date-wrapper{
+    font-size: 18px;
+    height: 26px;
+    padding: 0 10px;
+}
+
+.wh-date-wrapper .row div{
+    text-align: center;
+}
+
+.wh-date-max{
+
+}
+
+.wh-date-min{
+    color: rgba(255,255,255,0.75);
+}
+
+.wh-date-icon{
+    font-size: 30px;
+    margin-top: -3px;
+    line-height: 20px;
+}
+
+.wh-date-wrapper .row div:first-child{
+    text-align: left;
+}
+
+.wh-date-wrapper .row div:last-child{
+    font-size: 14px;
+    line-height: 26px;
+    text-align: right;
+}
+
+.wh-time{
+    font-size: 20px;
+}
+
+.wh-description{
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.wh-icon{
+    font-size: 40px;
+}
+
+.wh-degrees{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.weather .headline{
+    background: linear-gradient(to right, #6b47c2, #512da8);
+}
+.climate .headline{
+    background: linear-gradient(to right, #dc3275, #c2185b);
+}
+.hue .headline{
+    background: linear-gradient(to right, #ed4949, #d32f2f);
+}
+.calendar .headline{
+    background: linear-gradient(to right, #52A856, #388e3c);
+    text-align: left;
+    padding-left: 10px;
+}
+
+.cl-box{
+    text-align: center;
+}
+
+.cl-icon{
+    font-size: 30px;
+}
+
+.cl-text{
+    margin-bottom: 4px;
+}
+
+.cl-data{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.cl-icon, .cl-text{
+    color: rgba(255,255,255,0.75);
+}
+
+.hue-wrapper{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.ph-color{
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 auto 8px auto;
+    font-weight: 100;
+    border-radius: 60px;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.ph-text{
+    color: rgba(255,255,255,0.75);
+    line-height: 16px;
+    font-size: 14px;
+}
+
+.ph-text span{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.hue-wrapper.livingroom .ph-color{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) ), #FFE4B5;
+}
+.hue-wrapper.n-ceiling .ph-color{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) ), #FFFFE0;
+}
+.hue-wrapper.n-dresser .ph-color{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) ), #FFFFE0;
+}
+.hue-wrapper.n-window .ph-color{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) ), rgba(0,0,0,0.5);
+}
+
+.header{
+    color: #fff;
+    height: 134px;
+    padding-top: 20px;
+    font-weight: 100;
+}
+
+.header-right{
+    text-align: right;
+}
+
+.header-date{
+    font-size: 20px;
+}
+
+.header-time{
+    font-size: 70px;
+    margin-top: -15px;
+}
+
+.header-left{
+    height: 94px;
+    line-height: 94px;
+}
+
+.header-wh-degrees{
+    font-size: 70px;
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.header-wh-icon{
+    font-size: 70px;
+    display: inline-block;
+}
+
+.date-divider{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.1);
+    margin-top: 1px;
+    font-weight: 100;
+}
+
+.dd-left, .dd-right{
+    display: inline-block;
+}
+
+.dd-left{
+    float: left;
+}
+
+.dd-right{
+    float: right;
+}
+
+.calendar-white{
+    font-size: 16px;
+    display: inherit;
+    height: 40px;
+}
+
+.ca-app, .ca-time{
+    display: inline-block;
+}
+
+.ca-app{
+    float: left;
+}
+
+.ca-time{
+    float: right;
+}
+
+.hue-on, .hue-off{
+    padding: 5px 10px;
+    text-align: center;
+    transition: 0.3s ease all;
+}
+
+.hue-on div, .hue-off div{
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.hue-on:hover, .hue-off:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.hue-on div{
+    background: linear-gradient(to right, #52A856, #388e3c);
+}
+
+.hue-off div{
+    background: linear-gradient(to right, #ed4949, #d32f2f);
+}
