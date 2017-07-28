@@ -84,16 +84,26 @@ export default{
                 self.getWeather(lat, lng)
             }, (error) => {
                 console.log('error in collecting position: ' + error)
+                self.getWeather()
             })
         },
         getWeather (lat, lng) {
             let self = this
-            weatherService.get({'lat': lat, 'lon': lng}, (response) => {
-                self.weather = response.data
-                self.initialLoad = false
-            }, (error) => {
-                console.log('fejl: ' + error)
-            })
+            if (lat) {
+                weatherService.get({'lat': lat, 'lon': lng}, (response) => {
+                    self.weather = response.data
+                    self.initialLoad = false
+                }, (error) => {
+                    console.log('fejl: ' + error)
+                })
+            } else {
+                weatherService.get({'q': 'københavn,dk'}, (response) => {
+                    self.weather = response.data
+                    self.initialLoad = false
+                }, (error) => {
+                    console.log('fejl: ' + error)
+                })
+            }
         }
     },
     filters: {
