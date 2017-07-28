@@ -10,7 +10,7 @@ import VueMoment from 'vue-moment'
 import 'es6-promise/auto'
 
 Vue.use(VueAxios, axios)
-axios.defaults.baseURL = 'http://192.168.0.10/'
+axios.defaults.baseURL = ''
 
 Vue.use(VueMoment)
 require('moment/locale/da')

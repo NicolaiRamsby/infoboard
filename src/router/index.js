@@ -25,6 +25,11 @@ export default new Router({
         path: '/hue',
         name: 'Hue',
         component: require('@/pages/common/hue')
+    },
+    {
+        path: '/weather',
+        name: 'Weather',
+        component: require('@/pages/common/weather')
     }
   ]
 })
