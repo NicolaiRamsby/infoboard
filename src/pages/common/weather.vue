@@ -76,16 +76,18 @@ export default{
     methods: {
         getPosition () {
             let self = this
-            navigator.geolocation.getCurrentPosition(function (position) {
-                let lat = position.coords.latitude
-                let lng = position.coords.longitude
-                self.position.lat = position.coords.latitude
-                self.position.lng = position.coords.longitude
-                self.getWeather(lat, lng)
-            }, (error) => {
-                console.log('error in collecting position: ' + error)
-                self.getWeather()
-            })
+            setTimeout(function () {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    let lat = position.coords.latitude
+                    let lng = position.coords.longitude
+                    self.position.lat = position.coords.latitude
+                    self.position.lng = position.coords.longitude
+                    self.getWeather(lat, lng)
+                }, (error) => {
+                    console.log('error in collecting position: ' + error)
+                    self.getWeather()
+                })
+            }, 2000)
         },
         getWeather (lat, lng) {
             let self = this
