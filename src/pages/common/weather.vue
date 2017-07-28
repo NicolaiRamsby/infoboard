@@ -83,7 +83,7 @@ export default{
                 self.position.lng = position.coords.longitude
                 self.getWeather(lat, lng)
             }, (error) => {
-                console.log('error in collecting position')
+                console.log('error in collecting position: ' + error)
             })
         },
         getWeather (lat, lng) {
