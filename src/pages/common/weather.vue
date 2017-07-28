@@ -2,193 +2,54 @@
     <div style="color:#fff">
         <h1>VEJR</h1>
         <div style="padding:20px;display:inline-block;">
-            <table v-if="this.weatherCopenhagen.main">
+            <table>
                 <tr>
                     <td colspan="2">
-                        <h4>Lige nu i Kbh</h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Temperatur:</b>
-                    </td>
-                    <td>
-                        {{ weatherCopenhagen.main.temp | round }} <sup>o</sup>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Luftfugtighed:</b>
-                    </td>
-                    <td>
-                        {{ weatherCopenhagen.main.humidity }} %
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Min. temp.:</b>
-                    </td>
-                    <td>
-                        {{ weatherCopenhagen.main.temp_min }} <sup>o</sup>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Max. temp.:</b>
-                    </td>
-                    <td>
-                        {{ weatherCopenhagen.main.temp_max }} <sup>o</sup>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Vindhastighed:</b>
-                    </td>
-                    <td>
-                        {{ weatherCopenhagen.wind.speed | round }} m/s
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Overskrift:</b>
-                    </td>
-                    <td>
-                        {{ weatherCopenhagen.weather[0].main }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Beskrivelse:</b>
-                    </td>
-                    <td>
-                        {{ weatherCopenhagen.weather[0].description }}
+                        <h4>
+                            <span v-show="initialLoad">
+                                <i class="fa fa-refresh fa-spin fa-fw"></i> Finder din placering
+                            </span>
+                            <span v-show="!initialLoad" v-if="weather.name">
+                                <i class="fa fa-globe fa-fw"></i> {{ weather.name + ', ' + weather.sys.country}}
+                            </span>
+                            <span v-show="!initialLoad && !weather.name">
+                                <i>Ukendt placering</i>
+                            </span>
+                            <span v-show="loading">
+                                <i class="fa fa-refresh fa-spin"></i>
+                            </span>
+                        </h4>
                     </td>
                 </tr>
             </table>
-            <table v-if="this.weatherRoskilde.main">
+            <table v-if="weather.main">
                 <tr>
-                    <td colspan="2">
-                        <h4>Lige nu i Roskilde</h4>
-                    </td>
+                    <td><b>Temperatur:</b></td>
+                    <td>{{ weather.main.temp | round }} <sup>o</sup></td>
                 </tr>
                 <tr>
-                    <td>
-                        <b>Temperatur:</b>
-                    </td>
-                    <td>
-                        {{ weatherRoskilde.main.temp | round }} <sup>o</sup>
-                    </td>
+                    <td><b>Luftfugtighed:</b></td>
+                    <td>{{ weather.main.humidity | round }} %</td>
                 </tr>
                 <tr>
-                    <td>
-                        <b>Luftfugtighed:</b>
-                    </td>
-                    <td>
-                        {{ weatherRoskilde.main.humidity }} %
-                    </td>
+                    <td><b>Min. temp.:</b></td>
+                    <td>{{ weather.main.temp_min | round }} <sup>o</sup></td>
                 </tr>
                 <tr>
-                    <td>
-                        <b>Min. temp.:</b>
-                    </td>
-                    <td>
-                        {{ weatherRoskilde.main.temp_min }} <sup>o</sup>
-                    </td>
+                    <td><b>Max. temp.:</b></td>
+                    <td>{{ weather.main.temp_max | round }} <sup>o</sup></td>
                 </tr>
                 <tr>
-                    <td>
-                        <b>Max. temp.:</b>
-                    </td>
-                    <td>
-                        {{ weatherRoskilde.main.temp_max }} <sup>o</sup>
-                    </td>
+                    <td><b>Vindhastighed:</b></td>
+                    <td>{{ weather.wind.speed | round }} m/s</td>
                 </tr>
                 <tr>
-                    <td>
-                        <b>Vindhastighed:</b>
-                    </td>
-                    <td>
-                        {{ weatherRoskilde.wind.speed | round }} m/s
-                    </td>
+                    <td><b>Overskrift:</b></td>
+                    <td>{{ weather.weather[0].main }}</td>
                 </tr>
                 <tr>
-                    <td>
-                        <b>Overskrift:</b>
-                    </td>
-                    <td>
-                        {{ weatherRoskilde.weather[0].main }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Beskrivelse:</b>
-                    </td>
-                    <td>
-                        {{ weatherRoskilde.weather[0].description }}
-                    </td>
-                </tr>
-            </table>
-            <table v-if="this.weatherBarcelona.main">
-                <tr>
-                    <td colspan="2">
-                        <h4>Lige nu i Barcelona</h4>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Temperatur:</b>
-                    </td>
-                    <td>
-                        {{ weatherBarcelona.main.temp | round }} <sup>o</sup>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Luftfugtighed:</b>
-                    </td>
-                    <td>
-                        {{ weatherBarcelona.main.humidity }} %
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Min. temp.:</b>
-                    </td>
-                    <td>
-                        {{ weatherBarcelona.main.temp_min }} <sup>o</sup>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Max. temp.:</b>
-                    </td>
-                    <td>
-                        {{ weatherBarcelona.main.temp_max }} <sup>o</sup>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Vindhastighed:</b>
-                    </td>
-                    <td>
-                        {{ weatherBarcelona.wind.speed | round }} m/s
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Overskrift:</b>
-                    </td>
-                    <td>
-                        {{ weatherBarcelona.weather[0].main }}
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Beskrivelse:</b>
-                    </td>
-                    <td>
-                        {{ weatherBarcelona.weather[0].description }}
-                    </td>
+                    <td><b>Beskrivelse:</b></td>
+                    <td>{{ weather.weather[0].description }}</td>
                 </tr>
             </table>
         </div>
@@ -199,28 +60,35 @@ import * as weatherService from '../../services/weatherService'
 export default{
     data () {
         return {
-            weatherCopenhagen: [],
-            weatherRoskilde: [],
-            weatherBarcelona: []
+            weather: [],
+            loading: false,
+            initialLoad: true,
+            position: {
+                lat: '',
+                lng: ''
+            }
         }
     },
     created () {
-        this.getWeather()
+        this.getPosition()
+        // this.getWeather()
     },
     methods: {
-        getWeather () {
-            weatherService.get({'q': 'copenhagen,dk'}, (response) => {
-                this.weatherCopenhagen = response.data
-            }, (error) => {
-                console.log('fejl: ' + error)
+        getPosition () {
+            let self = this
+            navigator.geolocation.getCurrentPosition(function (position) {
+                let lat = position.coords.latitude
+                let lng = position.coords.longitude
+                self.position.lat = position.coords.latitude
+                self.position.lng = position.coords.longitude
+                self.getWeather(lat, lng)
             })
-            weatherService.get({'q': 'roskilde,dk'}, (response) => {
-                this.weatherRoskilde = response.data
-            }, (error) => {
-                console.log('fejl: ' + error)
-            })
-            weatherService.get({'q': 'barcelona,es'}, (response) => {
-                this.weatherBarcelona = response.data
+        },
+        getWeather (lat, lng) {
+            let self = this
+            weatherService.get({'lat': lat, 'lon': lng}, (response) => {
+                self.weather = response.data
+                self.initialLoad = false
             }, (error) => {
                 console.log('fejl: ' + error)
             })
@@ -234,11 +102,17 @@ export default{
 }
 </script>
 <style scoped>
+    h1{
+        margin: 20px 0 0 20px;
+    }
     table td{
         padding: 5px;
     }
     table{
-        display: inline-block;
         margin-right: 50px;
+        transition: 0.5s ease all;
+    }
+    table.loading{
+        opacity: 0.5
     }
 </style>
