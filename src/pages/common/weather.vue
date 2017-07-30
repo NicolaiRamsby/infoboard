@@ -56,7 +56,7 @@
     </div>
 </template>
 <script>
-import * as weatherService from '../../services/weatherService'
+// import * as weatherService from '../../services/weatherService'
 export default{
     data () {
         return {
@@ -70,7 +70,7 @@ export default{
         }
     },
     created () {
-        this.getPosition()
+        // this.getPosition()
         // this.getWeather()
     },
     methods: {
@@ -90,27 +90,22 @@ export default{
             }, 2000)
         },
         getWeather (lat, lng) {
-            let self = this
+            // let self = this
             if (lat) {
-                weatherService.get({'lat': lat, 'lon': lng}, (response) => {
+                /* weatherService.get({'lat': lat, 'lon': lng}, (response) => {
                     self.weather = response.data
                     self.initialLoad = false
                 }, (error) => {
                     console.log('fejl: ' + error)
-                })
+                }) */
             } else {
-                weatherService.get({'q': 'københavn,dk'}, (response) => {
+                /* weatherService.get({'q': 'københavn,dk'}, (response) => {
                     self.weather = response.data
                     self.initialLoad = false
                 }, (error) => {
                     console.log('fejl: ' + error)
-                })
+                }) */
             }
-        }
-    },
-    filters: {
-        round (value) {
-            return value.toFixed()
         }
     }
 }

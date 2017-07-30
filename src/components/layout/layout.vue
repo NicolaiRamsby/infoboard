@@ -1,5 +1,6 @@
 <template>
-    <div class="content" v-if="isOnline">
+    <div class="content" v-if="isOnline" :class="{'loading-active': $store.state.loading}">
+        <loader></loader>
         <transition name="fade">
             <router-view></router-view>
         </transition>
@@ -18,7 +19,8 @@
             this.updateStatus()
         },
         components: {
-            'offline': require('@/components/core/offline')
+            'offline': require('@/components/core/offline'),
+            'loader': require('../../components/core/loader')
         },
         methods: {
             updateStatus: function () {

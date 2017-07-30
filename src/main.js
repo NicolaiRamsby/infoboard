@@ -20,6 +20,9 @@ Vue.use(VueSweetAlert)
 
 Vue.config.productionTip = false
 
+Vue.component('headline', require('./components/elements/headline.vue'))
+Vue.component('section-error', require('./components/elements/section-error.vue'))
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
