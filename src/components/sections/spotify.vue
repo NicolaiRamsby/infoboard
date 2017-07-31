@@ -7,7 +7,7 @@
                     <div class="spotify-overlay" :style="albumart"></div>
                 </div>
                 <div class="element-content spotify-on-top" v-if="loggedIn">
-                    <div v-if="spotify.song.length > 0" style="margin-left:-10px;">
+                    <div v-if="spotify.song.length > 0">
                         <span class="spf spf-playing">{{ spotify.status }}</span>
                         <span class="spf spf-song">{{ spotify.song }}</span>
                         <span class="spf spf-artist">{{ spotify.artist }}</span>

@@ -448,7 +448,7 @@ button{
 }
 
 .spotify-overlay{
-    width: 300px;
+    width: calc(100% - 23px);
     height: 200px;
     background: rgba(0,0,0,0.5);
     position: absolute;
@@ -456,11 +456,11 @@ button{
 
 .spotify-on-top{
     position: absolute;
-    left: -6px;
+    left: -7px;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 300px;
+    width: calc(100% - 23px);
     height: 200px;
     text-align: center;
     background: rgba(0,0,0,0.75) !important;
