@@ -364,12 +364,33 @@ button{
 }
 
 .calendar-app-wrapper{
-    max-height: calc(100vh - 184px);
+    max-height: calc(100vh - 174px);
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
 
-.calendar-app-wrapper::-webkit-scrollbar {
+.calendar-app-wrapper::-webkit-scrollbar, .hue-app-wrapper::-webkit-scrollbar{
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.hue-app-wrapper{
+    /* max-height: calc(100vh - 788px); */
+    height: calc(100vh - 840px);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(255,255,255,0.2);
+}
+
+.hue-app-wrapper .element-content{
+    background: none;
+}
+
+.hue-buttons .col-sm-6{
+    background: rgba(255,255,255,0.2);
+}
+
+.hue-buttons button{
+    margin-top: -4px;
+    margin-bottom: 12px;
 }

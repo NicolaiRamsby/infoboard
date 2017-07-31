@@ -853,7 +853,7 @@
                     newDate = now.setDate(now.getDate() + this.count)
                 }
                     let formatted = Vue.moment(newDate).format('YYYY-MM-DD')
-                if (this.count < 14) {
+                if (this.count < 28) {
                     this.count = this.count + 1
                     this.dates.push({date: formatted})
                 } else {
