@@ -70,6 +70,9 @@
         },
         created () {
             this.getWeather()
+            setInterval(() => {
+                this.getWeather()
+            }, 30 * 1000)
         },
         methods: {
             getWeather () {

@@ -394,3 +394,11 @@ button{
     margin-top: -4px;
     margin-bottom: 12px;
 }
+
+#wrapper .col-sm-5{
+    padding-left: 8px;
+}
+
+#wrapper .col-sm-7{
+    padding-right: 8px;
+}

@@ -10,7 +10,7 @@ const get = (path, data, cb, errorCb) => {
     requestsTotal++
     store.state.loading = true
     store.state.errors = []
-    Vue.axios.get(path, {params: data})
+    Vue.axios.get(path, { params: data })
         .then((response) => {
             requestCompleted++
             loading()

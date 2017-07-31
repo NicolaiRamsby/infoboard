@@ -11,6 +11,7 @@ import 'es6-promise/auto'
 
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = ''
+// axios.defaults.headers.common['Authorization'] = 'Bearer 359CZGVj0vIVcVy-HAylMTLHv0Pi2KPm'
 
 Vue.use(VueMoment)
 require('moment/locale/da')
