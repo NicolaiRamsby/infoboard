@@ -8,7 +8,7 @@
                         <div class="dd-left">{{ date.date | moment("dddd") }}</div>
                         <div class="dd-right">{{ date.date | moment("D. MMMM") }}</div>
                     </div>
-                    <div class="element-content calendar-white" v-for="event in filteredEvents" v-if="event.start === date.date">
+                    <div class="element-content calendar-white" v-for="event in filteredEvents" v-if="event.start === date.date && event.calendar_id != 'cal_WSTUlfV9On5fAAqa_Z8AL4WdDlIqAj4AGNwIsCQ' && event.calendar_id != 'cal_WSTUlfV9On5fAAqa_BtJVc75FrHDZNrEvB0Y0hQ'">
                         <div class="ca-app">
                             {{ event.summary }}
                         </div>
@@ -827,8 +827,9 @@
                     event.time = event.start.slice(11, 13) + '.' + event.start.slice(14, 16)
                     event.start = event.start.slice(0, 10)
                     if (event.time === '.') {
-                        event.time = 'hele dagen'
-                        return event
+                        // event.time = 'hele dagen'
+                        // return event
+                        return
                     } else {
                         return event
                     }

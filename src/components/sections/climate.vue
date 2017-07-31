@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-sm-3 cl-box">
                         <div class="cl-icon">
-                            <span class="ion-waterdrop"></span>
+                            <span class="ion-shuffle"></span>
                         </div>
                         <div class="cl-text">
                             CO<sup>2</sup>

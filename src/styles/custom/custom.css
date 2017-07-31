@@ -366,6 +366,7 @@ button{
 .calendar-app-wrapper{
     max-height: calc(100vh - 184px);
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .calendar-app-wrapper::-webkit-scrollbar {
