@@ -16,7 +16,7 @@
                         <i class="fa fa-refresh fa-spin"></i>
                     </div>
                 </div>
-                <div style="line-height:200px;width:324px;text-align:center;position:absolute;" v-if="!loggedIn">
+                <div style="line-height:200px;width:calc(100% - 23px);text-align:center;position:absolute;" v-if="!loggedIn">
                     <button @click="tester()" class="btn">
                         Spotify login
                     </button>
