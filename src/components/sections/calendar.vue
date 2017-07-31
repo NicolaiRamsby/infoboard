@@ -1,6 +1,6 @@
 <template>
     <div class="element-wrapper">
-        <div class="element-box calendar" v-if="events.length > 0">
+        <div class="element-box calendar" v-if="events && events.length > 0">
             <headline :headline="headline.title" :headlineMeta="headline.meta" :icon="headline.icon"></headline>
             <div class="calendar-app-wrapper">
                 <div v-for="date in dates">
@@ -34,7 +34,8 @@
                 },
                 count: 0,
                 dates: [],
-                events: []
+                events: [],
+                oldEvents: []
             }
         },
         mounted () {
@@ -74,6 +75,14 @@
             getEvents () {
                 calendarService.get(this.startDate, this.endDate, {}, (response) => {
                     this.events = response.data.first_page.events
+                    if (this.oldEvents.length > 0) {
+                        if (this.oldEvents.length !== this.events.length) {
+                            this.$toastr('success', 'Kalender blev opdateret')
+                            this.oldEvents = this.events
+                        } else { }
+                    } else {
+                        this.oldEvents = response.data.first_page.events
+                    }
                 }, (error) => {
                     alert('fejlen er: ' + error)
                 })

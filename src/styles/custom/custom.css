@@ -2,6 +2,7 @@ html, body{
     font-family: 'Roboto', sans-serif;
     /* background: linear-gradient(to bottom right, #0D0D0D, #000000); */
     background: #000;
+    overflow: hidden;
 }
 
 .content{
@@ -25,6 +26,7 @@ html, body{
     text-align: center;
     color: #fff;
     font-weight: 100;
+
 }
 
 .element-content{
@@ -106,18 +108,23 @@ html, body{
 }
 
 .weather .headline{
-    background: linear-gradient(to left, rgba(81,45,168,0.8), #512da8);
+    background: linear-gradient(to left, rgba(33,150,243,0.8), #2196f3);
 }
 .climate .headline{
-    background: linear-gradient(to left, rgba(192,24,91,0.8), #c2185b);
+    /* background: linear-gradient(to left, rgba(192,24,91,0.8), #c2185b); */
+    background: linear-gradient(to left, rgba(0,150,136,0.8), #009688);
 }
 .hue .headline{
-    background: linear-gradient(to left, rgba(211,47,47,0.8), #d32f2f);
+    background: linear-gradient(to left, rgba(156,39,176,0.8), #9c27b0);
 }
 .calendar .headline{
-    background: linear-gradient(to left, rgba(56,142,60,0.8), #388e3c);
-    text-align: left;
-    padding-left: 10px;
+    background: linear-gradient(to left, rgba(244,67,54,0.8), #f44336);
+    /* text-align: left;
+    padding-left: 10px; */
+}
+
+.spotify .headline{
+    background: linear-gradient(to left, rgba(76,175,80,0.8), #4caf50);
 }
 
 .cl-box{
@@ -364,7 +371,9 @@ button{
 }
 
 .calendar-app-wrapper{
-    max-height: calc(100vh - 174px);
+    /* max-height: calc(100vh - 174px); */
+    height: 571px;
+    margin-bottom: 20px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
@@ -376,14 +385,27 @@ button{
 
 .hue-app-wrapper{
     /* max-height: calc(100vh - 788px); */
+    margin-top: 1px;
     height: calc(100vh - 840px);
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     background: rgba(255,255,255,0.2);
 }
 
+.spotify-app-wrapper{
+    margin-top: 1px;
+    height: calc(100vh - 799px);
+    background: rgba(255,255,255,0.2);
+}
+
+.spotify-app-wrapper .element-content{
+    background: none;
+    margin-top: 0px;
+}
+
 .hue-app-wrapper .element-content{
     background: none;
+    margin-top: 0px;
 }
 
 .hue-buttons .col-sm-6{

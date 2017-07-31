@@ -16,6 +16,14 @@ axios.defaults.baseURL = ''
 Vue.use(VueMoment)
 require('moment/locale/da')
 
+import VueToastr from '@deveodk/vue-toastr'
+Vue.use(VueToastr, {
+    defaultPosition: 'toast-bottom-right',
+    defaultType: 'info',
+    defaultTimeout: 8000
+})
+import '@deveodk/vue-toastr/dist/@deveodk/vue-toastr.css'
+
 import VueSweetAlert from 'vue-sweetalert'
 Vue.use(VueSweetAlert)
 

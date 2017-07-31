@@ -9,9 +9,9 @@
                     <icon-converter :icon="weather.weather[0].icon"></icon-converter>
                 </div>
                 <div class="header-wh-meta">
-                    <div class="header-meta-text" v-if="weather.main">
-                        min. {{ weather.main.temp_min | round }}<sup>o</sup><br>
-                        max. {{ weather.main.temp_max | round }}<sup>o</sup><br>
+                    <div class="header-meta-text" v-if="weather.main && $store.state.weatherTodayMin">
+                        min. {{ $store.state.weatherTodayMin | round }}<sup>o</sup><br>
+                        max. {{ $store.state.weatherTodayMax | round }}<sup>o</sup><br>
                         {{ weather.wind.speed | round }} m/s
                     </div>
                 </div>

@@ -84,6 +84,8 @@
                 })
                 weatherService.fiveDays({'q': this.$store.state.city, 'cnt': 6}, (response) => {
                     this.fiveDayForecast = response.data
+                    this.$store.state.weatherTodayMin = response.data.list[0].temp.min
+                    this.$store.state.weatherTodayMax = response.data.list[0].temp.max
                     this.headline.meta = response.data.city.name
                 }, (error) => {
                     alert('fejlen er: ' + error)
