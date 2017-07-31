@@ -17,6 +17,7 @@
         },
         created () {
             this.updateStatus()
+            // window.addEventListener('touchmove', function (e) { e.preventDefault() }, false)
         },
         components: {
             'offline': require('@/components/core/offline'),

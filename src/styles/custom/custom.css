@@ -229,6 +229,7 @@ html, body{
 
 .dd-left, .dd-right{
     display: inline-block;
+    text-transform: uppercase;
 }
 
 .dd-left{
@@ -251,6 +252,12 @@ html, body{
 
 .ca-app{
     float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 22px;
+    display: inline-block;
+    max-width: 80%;
+    white-space: nowrap;
 }
 
 .ca-time{
@@ -354,4 +361,14 @@ button{
 
 .header-meta-text{
     line-height: 22px;
+}
+
+.calendar-app-wrapper{
+    max-height: calc(100vh - 184px);
+    overflow-y: scroll;
+}
+
+.calendar-app-wrapper::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
 }

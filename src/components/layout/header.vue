@@ -9,7 +9,7 @@
                     <icon-converter :icon="weather.weather[0].icon"></icon-converter>
                 </div>
                 <div class="header-wh-meta">
-                    <div class="header-meta-text">
+                    <div class="header-meta-text" v-if="weather.main">
                         min. {{ weather.main.temp_min | round }}<sup>o</sup><br>
                         max. {{ weather.main.temp_max | round }}<sup>o</sup><br>
                         {{ weather.wind.speed | round }} m/s
