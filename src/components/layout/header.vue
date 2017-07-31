@@ -2,17 +2,28 @@
     <div class="col-sm-12 header">
         <div class="row">
             <div class="col-sm-6 header-left" v-if="weather">
-                <div class="header-wh-degrees" v-if="weather.main">
-                    {{ weather.main.temp | round }}<sup>o</sup>
+                <div class="header-weather-meta">
+                    Vejret lige nu i
+                    <span v-if="$store.state.formattedCity">
+                        {{ $store.state.formattedCity }}
+                    </span>
+                    <span v-else>
+                        <i class="fa fa-refresh fa-spin"></i>
+                    </span>
                 </div>
-                <div class="header-wh-icon" v-if="weather.weather">
-                    <icon-converter :icon="weather.weather[0].icon"></icon-converter>
-                </div>
-                <div class="header-wh-meta">
-                    <div class="header-meta-text" v-if="weather.main && $store.state.weatherTodayMin">
-                        min. {{ $store.state.weatherTodayMin | round }}<sup>o</sup><br>
-                        max. {{ $store.state.weatherTodayMax | round }}<sup>o</sup><br>
-                        {{ weather.wind.speed | round }} m/s
+                <div class="header-weather">
+                    <div class="header-wh-degrees" v-if="weather.main">
+                        {{ weather.main.temp | round }}<sup>o</sup>
+                    </div>
+                    <div class="header-wh-icon" v-if="weather.weather">
+                        <icon-converter :icon="weather.weather[0].icon"></icon-converter>
+                    </div>
+                    <div class="header-wh-meta">
+                        <div class="header-meta-text" v-if="weather.main && $store.state.weatherTodayMin">
+                            min. {{ $store.state.weatherTodayMin | round }}<sup>o</sup><br>
+                            max. {{ $store.state.weatherTodayMax | round }}<sup>o</sup><br>
+                            {{ weather.wind.speed | round }} m/s
+                        </div>
                     </div>
                 </div>
             </div>

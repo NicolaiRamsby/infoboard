@@ -208,8 +208,8 @@ html, body{
 }
 
 .header-left{
-    height: 94px;
-    line-height: 94px;
+    /* height: 94px;
+    line-height: 94px; */
 }
 
 .header-wh-degrees{
@@ -396,6 +396,7 @@ button{
     margin-top: 1px;
     height: calc(100vh - 799px);
     background: rgba(255,255,255,0.2);
+    background-size: cover !important;
 }
 
 .spotify-app-wrapper .element-content{
@@ -423,4 +424,71 @@ button{
 
 #wrapper .col-sm-7{
     padding-right: 8px;
+}
+
+.header-weather-meta{
+    font-size: 20px;
+}
+
+.header-weather{
+    font-size: 70px;
+    margin-top: -15px;
+}
+
+.header-weather .header-wh-meta{
+    font-size: 12px;
+}
+
+.header-weather .header-wh-icon{
+    line-height: 0px;
+}
+
+.header-date, .header-weather-meta{
+    opacity: 0.9;
+}
+
+.spotify-overlay{
+    width: 300px;
+    height: 200px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+}
+
+.spotify-on-top{
+    position: absolute;
+    left: -6px;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    background: rgba(0,0,0,0.75) !important;
+}
+
+.spf{
+    display: block;
+}
+
+.spf-playing{
+    margin-top: 36px;
+    color: #4caf50;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.spf-song{
+    font-size: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+    height: 45px;
+    width: 280px;
+    margin: 0 10px;
+}
+
+.spf-artist{
+    margin-top: 6px;
 }

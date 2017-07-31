@@ -79,6 +79,7 @@
                 weatherService.today({'q': this.$store.state.city, 'cnt': 6}, (response) => {
                     this.todayForecast = response.data
                     this.headline.meta = response.data.city.name
+                    this.$store.state.formattedCity = response.data.city.name
                 }, (error) => {
                     alert('fejlen er: ' + error)
                 })

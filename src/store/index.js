@@ -7,6 +7,7 @@ export default new Vuex.Store({
     state: {
         loading: false,
         city: 'barcelona,es',
+        formattedCity: '',
         weatherTodayMin: '',
         weatherTodayMax: ''
     },

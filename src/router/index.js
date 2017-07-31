@@ -30,6 +30,11 @@ export default new Router({
         path: '/weather',
         name: 'Weather',
         component: require('@/pages/common/weather')
+    },
+    {
+      path: '/spotify',
+      name: 'Spotify',
+      component: require('@/pages/common/spotify')
     }
   ]
 })
