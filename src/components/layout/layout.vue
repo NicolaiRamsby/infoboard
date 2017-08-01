@@ -42,7 +42,7 @@
                 let height = window.innerHeight
                 let width = window.innerWidth
                 if (userAgent.match(iPadIdentifier)) {
-                    if (height === 1184 && width === 980) {
+                    if (height === 1282 && width === 980) {
                         this.dimensionsOK = true
                     } else {
                         this.dimensionsOK = false
