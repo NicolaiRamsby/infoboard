@@ -372,7 +372,7 @@ button{
 
 .calendar-app-wrapper{
     /* max-height: calc(100vh - 174px); */
-    height: 571px;
+    height: 573px;
     margin-bottom: 20px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
@@ -394,7 +394,7 @@ button{
 
 .spotify-app-wrapper{
     margin-top: 1px;
-    height: calc(100vh - 799px);
+    height: calc(100vh - 798px);
     background: rgba(255,255,255,0.2);
     background-size: cover !important;
 }
@@ -449,7 +449,7 @@ button{
 
 .spotify-overlay{
     width: calc(100% - 23px);
-    height: 200px;
+    height: 268px;
     background: rgba(0,0,0,0.5);
     position: absolute;
 }
@@ -461,7 +461,7 @@ button{
     margin-left: auto;
     margin-right: auto;
     width: calc(100% - 23px);
-    height: 200px;
+    height: 268px;
     text-align: center;
     background: rgba(0,0,0,0.75) !important;
 }
@@ -471,7 +471,7 @@ button{
 }
 
 .spf-playing{
-    margin-top: 36px;
+    margin-top: 70px;
     color: #4caf50;
     text-transform: uppercase;
     font-size: 20px;

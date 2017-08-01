@@ -9,6 +9,8 @@ import store from './store'
 import VueMoment from 'vue-moment'
 import 'es6-promise/auto'
 
+Vue.router = router
+
 Vue.use(VueAxios, axios)
 axios.defaults.baseURL = ''
 // axios.defaults.headers.common['Authorization'] = 'Bearer 359CZGVj0vIVcVy-HAylMTLHv0Pi2KPm'
@@ -31,6 +33,14 @@ Vue.config.productionTip = false
 
 Vue.component('headline', require('./components/elements/headline.vue'))
 Vue.component('section-error', require('./components/elements/section-error.vue'))
+
+import vueCoreAuthenticator from '@deveodk/vue-core-authenticator'
+import '@deveodk/vue-core-authenticator/dist/@deveodk/vue-core-authenticator.css'
+Vue.use(vueCoreAuthenticator, {
+    baseURL: 'http://localhost:8000',
+    facebookClientId: '348369225596159',
+    googleClientId: '401598821744-nfedp9r6d5no8ug2f2knv5jtqnmieqr2.apps.googleusercontent.com'
+})
 
 /* eslint-disable no-new */
 new Vue({

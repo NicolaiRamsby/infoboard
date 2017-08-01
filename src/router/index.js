@@ -7,14 +7,31 @@ export default new Router({
   mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
-    {
+      {
+          path: '/login',
+          name: 'Login',
+          meta: {layout: false},
+          component: require('@/pages/auth/login')
+      },
+      {
+          path: '/forgot_password',
+          name: 'ForgotPassword',
+          meta: {layout: false},
+          component: require('@/pages/auth/forgotPassword')
+      },
+      {
+          path: '/dashboard',
+          name: 'Dashboard',
+          redirect: 'Index'
+      },
+      {
         path: '/404',
-        name: '404',
+        name: 'NotFound',
         component: require('@/pages/common/404')
     },
     {
         path: '*',
-        redirect: '404'
+        redirect: 'NotFound'
     },
     {
         path: '/',
