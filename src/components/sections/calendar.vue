@@ -34,18 +34,22 @@
                 },
                 count: 0,
                 dates: [],
-                events: [],
+                events: [
+                    {
+                        test: 'test'
+                    }
+                ],
                 oldEvents: []
             }
         },
         mounted () {
-            this.setDates()
+            // this.setDates()
         },
         created () {
-            this.getEvents()
+            /* this.getEvents()
             setInterval(() => {
                 this.getEvents()
-            }, 30 * 1000)
+            }, 30 * 1000) */
         },
         computed: {
             startDate: function () {
@@ -58,7 +62,7 @@
                 return Vue.moment(enddate).format('YYYY-MM-DD')
             },
             filteredEvents: function () {
-                return this.events.filter(function (event) {
+                /* return this.events.filter(function (event) {
                     event.time = event.start.time.slice(11, 13) + '.' + event.start.time.slice(14, 16)
                     event.start = event.start.time.slice(0, 10)
                     if (event.time === '.') {
@@ -68,7 +72,7 @@
                     } else {
                         return event
                     }
-                })
+                }) */
             }
         },
         methods: {
