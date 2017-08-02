@@ -2,30 +2,24 @@
     <div class="element-wrapper">
         <div class="element-box spotify">
             <headline :headline="headline.title" :headlineMeta="headline.meta" :icon="headline.icon"></headline>
-            <div class="spotify-app-wrapper">
-                <div style="overflow:hidden" v-if="loggedIn">
-                    <div class="spotify-overlay" :style="albumart"></div>
+            <div class="spotify-app-wrapper" style="color:#fff">
+                <div class="spf-song">{{ spotify.song }}</div>
+                <div class="spf-artists">
+                    <span v-for="(artist, index) in spotify.artists">
+                        {{ artist.name }}<span v-if="index + 1 !== spotify.artists.length">, </span>
+                    </span>
                 </div>
-                <div class="element-content spotify-on-top" v-if="loggedIn">
-                    <div v-if="spotify.song.length > 0">
-                        <span class="spf spf-playing">{{ spotify.status }}</span>
-                        <span class="spf spf-song">{{ spotify.song }}</span>
-                        <span class="spf spf-artist">{{ spotify.artist }}</span>
-                    </div>
-                    <div v-else>
-                        <i class="fa fa-refresh fa-spin"></i>
-                    </div>
-                </div>
-                <div style="line-height:200px;width:calc(100% - 23px);text-align:center;position:absolute;" v-if="!loggedIn">
-                    <button @click="tester()" class="btn">
-                        Spotify login
-                    </button>
-                </div>
+                <div class="spf-time" :style="'background:#fff;height:2px;transition:2s ease all;width:' + spotify.progress + '%;'"></div>
+                <div class="spf-album"><img :src="spotify.album" style="width:100px;"></div>
+                <div class="spf-device">{{ spotify.playingOn }}</div>
+                <div class="spf-volume">{{ spotify.volume }}</div>
+                <div class="spf-status">{{ spotify.status }}</div>
             </div>
         </div>
     </div>
 </template>
 <script>
+    import axios from 'axios'
     export default {
         data () {
             return {
@@ -36,30 +30,39 @@
                 },
                 spotify: {
                     song: '',
-                    artist: '',
+                    artists: [],
+                    progress: '',
                     album: '',
+                    playingOn: '',
+                    volume: '',
                     status: ''
-                },
-                albumart: '',
-                loggedIn: false
+                }
             }
         },
-        mounted () {
-            this.getCurrentSong()
+        created () {
+            this.getTrackInfo()
+            setInterval(() => {
+                this.getTrackInfo()
+            }, 2 * 1000)
         },
         methods: {
-            getCurrentSong () {
-                setInterval(() => {
-                    this.spotify.song = window.spotifySong
-                    this.spotify.album = window.spotifyAlbum
-                    this.spotify.artist = window.spotifyArtist
-                    this.spotify.status = window.spotifyPlaying
-                    this.albumart = 'background:url(' + window.spotifyAlbum + ') center'
-                    this.loggedIn = window.login
-                }, 1 * 1000)
-            },
-            tester () {
-                window.dispatchEvent(new Event('spf-login'))
+            getTrackInfo () {
+                let self = this
+                let instance = axios.create()
+                let namespace = 'https://api.spotify.com/v1/me/player'
+                Object.assign(instance.defaults, {headers: {authorization: 'Bearer BQDU-sXyG6wjH4nCCP6hJ8C73LTd-50TxFkl50Mj3Y6OMwzG1M5PhF8CirqOhNTwqe1_8jkGMRvutNXnOnChOYGZH-U_Nav8rWjnmAISGz1XU7DpJX2EzG5ElvILaXgz1IfcgVbrIJlclIxeQLGdxQ'}})
+                instance.get(namespace)
+                    .then(function (response) {
+                        self.spotify.song = response.data.item.name
+                        self.spotify.artists = response.data.item.artists
+                        self.spotify.progress = response.data.progress_ms / response.data.item.duration_ms * 100
+                        self.spotify.album = response.data.item.album.images[0].url
+                        self.spotify.playingOn = response.data.device.name
+                        self.spotify.volume = response.data.device.volume_percent
+                        self.spotify.status = response.data.is_playing ? 'Afspiller' : 'Sat på pause'
+                    }, () => {
+                        this.$toastr('error', 'Spotify kunne ikke hentes')
+                    })
             }
         }
     }

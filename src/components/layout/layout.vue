@@ -27,8 +27,7 @@
         created () {
             this.updateStatus()
             // this.checkDimensions()
-            this.tempHax()
-            window.addEventListener('resize', this.checkDimensions)
+            // window.addEventListener('resize', this.checkDimensions)
             // window.addEventListener('touchmove', function (e) { e.preventDefault() }, false)
         },
         components: {
