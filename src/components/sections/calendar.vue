@@ -83,7 +83,7 @@
                     } else {
                         this.oldEvents = response.data.first_page.events
                     }
-                }, (error) => {
+                }, () => {
                     this.$toastr('error', 'Kalenderen kunne ikke hentes')
                 })
             },

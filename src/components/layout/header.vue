@@ -62,7 +62,7 @@
             getWeather () {
                 weatherService.now({'q': this.$store.state.city}, (response) => {
                     this.weather = response.data
-                }, (error) => {
+                }, () => {
                     this.$toastr('error', 'Vejret lige nu kunne ikke hentes')
                 })
             }

@@ -80,7 +80,7 @@
                     this.todayForecast = response.data
                     this.headline.meta = response.data.city.name
                     this.$store.state.formattedCity = response.data.city.name
-                }, (error) => {
+                }, () => {
                     this.$toastr('error', 'Dagens vejr kunne ikke hentes')
                 })
                 weatherService.fiveDays({'q': this.$store.state.city, 'cnt': 6}, (response) => {
@@ -88,7 +88,7 @@
                     this.$store.state.weatherTodayMin = response.data.list[0].temp.min
                     this.$store.state.weatherTodayMax = response.data.list[0].temp.max
                     this.headline.meta = response.data.city.name
-                }, (error) => {
+                }, () => {
                     this.$toastr('error', '5 døgns prognose kunne ikke hentes')
                 })
             }
