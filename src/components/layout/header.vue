@@ -63,7 +63,7 @@
                 weatherService.now({'q': this.$store.state.city}, (response) => {
                     this.weather = response.data
                 }, (error) => {
-                    alert('fejlen er: ' + error)
+                    this.$toastr('error', 'Vejret lige nu kunne ikke hentes')
                 })
             }
         },

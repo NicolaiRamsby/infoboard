@@ -81,7 +81,7 @@
                     this.headline.meta = response.data.city.name
                     this.$store.state.formattedCity = response.data.city.name
                 }, (error) => {
-                    alert('fejlen er: ' + error)
+                    this.$toastr('error', 'Dagens vejr kunne ikke hentes')
                 })
                 weatherService.fiveDays({'q': this.$store.state.city, 'cnt': 6}, (response) => {
                     this.fiveDayForecast = response.data
@@ -89,7 +89,7 @@
                     this.$store.state.weatherTodayMax = response.data.list[0].temp.max
                     this.headline.meta = response.data.city.name
                 }, (error) => {
-                    alert('fejlen er: ' + error)
+                    this.$toastr('error', '5 døgns prognose kunne ikke hentes')
                 })
             }
         },

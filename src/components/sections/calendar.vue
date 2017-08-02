@@ -84,7 +84,7 @@
                         this.oldEvents = response.data.first_page.events
                     }
                 }, (error) => {
-                    alert('fejlen er: ' + error)
+                    this.$toastr('error', 'Kalenderen kunne ikke hentes')
                 })
             },
             setDates () {
