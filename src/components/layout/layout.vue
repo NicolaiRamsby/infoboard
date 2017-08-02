@@ -20,12 +20,13 @@
         data () {
             return {
                 isOnline: true,
-                dimensionsOK: false
+                dimensionsOK: true
             }
         },
         created () {
             this.updateStatus()
-            this.checkDimensions()
+            // this.checkDimensions()
+            this.tempHax()
             window.addEventListener('resize', this.checkDimensions)
             // window.addEventListener('touchmove', function (e) { e.preventDefault() }, false)
         },
@@ -38,7 +39,6 @@
             checkDimensions () {
                 let userAgent = window.navigator.userAgent
                 let iPadIdentifier = 'iPad'
-                let MacBookIdentifier = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36'
                 let height = window.innerHeight
                 let width = window.innerWidth
                 if (userAgent.match(iPadIdentifier)) {
@@ -47,8 +47,6 @@
                     } else {
                         this.dimensionsOK = false
                     }
-                } else if (userAgent === MacBookIdentifier) {
-                    this.dimensionsOK = true
                 } else {
                     this.dimensionsOK = false
                 }
