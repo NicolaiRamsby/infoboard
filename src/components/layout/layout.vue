@@ -8,6 +8,7 @@
                         <router-view></router-view>
                     </transition>
                 </div>
+                <div @click="refresh()" style="padding:20px;background:red;color:#fff;position:absolute;right:50px;bottom:50px;">OPDATER</div>
             </div>
             <dimension-error v-else></dimension-error>
         </div>
@@ -36,6 +37,9 @@
             'dimension-error': require('@/components/elements/dimension-error')
         },
         methods: {
+            refresh () {
+                location.reload()
+            },
             checkDimensions () {
                 let userAgent = window.navigator.userAgent
                 let iPadIdentifier = 'iPad'
